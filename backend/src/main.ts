@@ -3,18 +3,11 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-const pubApiPingRoute = require('./routes/public/pingRoutes');
-app.use('/ping', pubApiPingRoute);
+const pubApiGatewayRoute = require('./routes/gatewayRoutes');
+app.use('/record_leases', pubApiGatewayRoute);
 
-const pubApiDnsRoute = require('./routes/public/dnsRoutes');
-app.use('/dns_response', pubApiDnsRoute);
-
-console.log("CAIO");
-//require('./resolv');
-require('./dns');
-
-
-app.listen(3800, () => {
+console.log("Ci sono!")
+app.listen(3888, () => {
   console.log('Application listening on port 3800!');
 });
 
